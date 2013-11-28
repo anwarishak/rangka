@@ -1,0 +1,11 @@
+#AuthUserFile /path/to/.htpasswds
+#AuthType Basic
+#AuthName "Protected area"
+#Require valid-user
+
+Options -MultiViews
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+) /index.php?%{QUERY_STRING}
