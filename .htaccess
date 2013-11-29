@@ -5,7 +5,6 @@
 
 Options -MultiViews
 RewriteEngine on
-
 RewriteCond %{REQUEST_FILENAME} !-s
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+) /index.php?%{QUERY_STRING}
