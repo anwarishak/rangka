@@ -22,8 +22,13 @@ class model
 
   }
 
-  public static function get_many()
+  public static function get_by_id($id)
   {
     
+  }
+
+  public static function get_many()
+  {
+
   }
 }
