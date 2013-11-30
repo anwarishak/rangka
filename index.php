@@ -8,7 +8,8 @@ $secondary_path = empty($path_parts[1]) ? '' : $path_parts[1];
 $tertiary_path = empty($path_parts[2]) ? '' : $path_parts[2];
 $quarternary_path = empty($path_parts[3]) ? '' : $path_parts[3];
 
-$controller = controller::get_instance($main_path);
+$controller = controller::get_instance($main_path, $secondary_path, $tertiary_path, $quarternary_path);
+$controller->process();Í
 
 
 
