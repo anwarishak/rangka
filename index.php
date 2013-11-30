@@ -27,6 +27,11 @@ $controller->process();
 
 function __autoload($class_name)
 {
-  $rangka_file = 'rangka/'.$class_name.'.php';
-  include $rangka_file;
+  $file = $class_name.'.php';
+
+  if (file_exists('rangka/'.$file)) include 'rangka/'.$file;
+  elseif (file_exists('controllers/'.$file)) include 'controllers/'.$file;
+  elseif (file_exists('models/'.$file)) include 'models/'.$file;
+  elseif (file_exists('rangka/controllers/'.$file)) include 'rangka/controllers/'.$file;
+  elseif (file_exists('rangka/models/'.$file)) include 'rangka/models/'.$file;
 }
