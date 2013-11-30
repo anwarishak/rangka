@@ -36,6 +36,8 @@ abstract class controller
 
   public function process()
   {
+    // $session = session::get_instance();
+
     switch ($_SERVER['REQUEST_METHOD'])
     {
       case 'POST':
@@ -57,7 +59,10 @@ abstract class controller
   {
     if (empty($this->secondary_path))
     {
-      $this->models = call_user_func($this->model_name.'::get_many');
+      if ($this->model_name)
+      {
+        $this->models = call_user_func($this->model_name.'::get_many');
+      }
     }
   }
 }
