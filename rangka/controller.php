@@ -55,6 +55,9 @@ abstract class controller
 
   protected function get()
   {
-    $
+    if (empty($this->secondary_path))
+    {
+      $this->models = call_user_func($this->model_name.'::get_many');
+    }
   }
 }

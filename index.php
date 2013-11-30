@@ -8,8 +8,11 @@ $secondary_path = empty($path_parts[1]) ? '' : $path_parts[1];
 $tertiary_path = empty($path_parts[2]) ? '' : $path_parts[2];
 $quarternary_path = empty($path_parts[3]) ? '' : $path_parts[3];
 
+// DO ALL CUSTOM ROUTING / URL MANIPULATION HERE
+// $main_path SHOULD ALWAYS BE THE CONTROLLER NAME
+
 $controller = controller::get_instance($main_path, $secondary_path, $tertiary_path, $quarternary_path);
-$controller->process();Í
+$controller->process();
 
 
 
