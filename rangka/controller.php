@@ -2,15 +2,18 @@
 
 abstract class controller
 {
-  public $secondary_path;
-  public $tertiary_path;
-  public $quarternary_path;
+  protected $secondary_path;
+  protected $tertiary_path;
+  protected $quarternary_path;
+
+  protected $response_type;
 
   protected $model_name;
   protected $models;
   protected $model;
 
   protected $template;
+  protected $standard_template = 'default.php';
   protected $list_template = 'default_list.php';
   protected $view_template = 'default_view.php';
   protected $edit_template = 'default_edit.php';
@@ -22,14 +25,17 @@ abstract class controller
 
   public static function get_instance($name, $secondary_path='', $tertiary_path='', $quarternary_path='')
   {
-    $name = str_replace('-', '_', $name).'_controller';
+    $name_parts = explode('.', $name);
+    $controller_name = str_replace('-', '_', $name_parts[0]).'_controller';
+    $response_type = !empty($name_parts[1]) ? $name_parts[1] : '';
 
-    if (class_exists($name))
+    if (class_exists($controller_name))
     {
-      $controller = new $name;
+      $controller = new $controller_name;
       $controller->secondary_path = $secondary_path;
       $controller->tertiary_path = $tertiary_path;
       $controller->quarternary_path = $quarternary_path;
+      $controller->response_type = $response_type;
     }
     else
     {
@@ -69,13 +75,14 @@ abstract class controller
   protected function get()
   {
     $this->preget();
-    $this->template = $this->list_template;
+    $this->template = $this->standard_template;
 
     if ($this->model_name)
     {
       if (empty($this->secondary_path))
       {
         $this->models = call_user_func($this->model_name.'::get_many');
+        $this->template = $this->list_template;
       }
       else
       {
@@ -85,6 +92,19 @@ abstract class controller
     }
 
     $this->postget();
+  }
+
+  protected function prepost() {}
+
+  protected function postpost() {}
+
+  protected function post()
+  {
+    $this->prepost();
+
+
+
+    $this->postpost();
   }
 
   protected function view()
