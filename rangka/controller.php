@@ -10,6 +10,11 @@ abstract class controller
   protected $models;
   protected $model;
 
+  protected $template;
+  protected $list_template = 'default_list.php';
+  protected $view_template = 'default_view.php';
+  protected $edit_template = 'default_edit.php';
+
   public function __constuct() 
   {
 
@@ -53,16 +58,41 @@ abstract class controller
         $this->get();
         break;
     }
+
+    $this->view();
   }
+
+  protected function preget() {}
+
+  protected function postget() {}
 
   protected function get()
   {
-    if (empty($this->secondary_path))
+    $this->preget();
+    $this->template = $this->list_template;
+
+    if ($this->model_name)
     {
-      if ($this->model_name)
+      if (empty($this->secondary_path))
       {
         $this->models = call_user_func($this->model_name.'::get_many');
       }
+      else
+      {
+        $this->model = call_user_func($this->model_name.'::get_by_id', $this->secondary_path);
+        $this->template = $this->view_template;
+      }
     }
+
+    $this->postget();
+  }
+
+  protected function view()
+  {
+    $models = $this->models;
+    $model = $this->model;
+
+    if (file_exists('templates/'.$this->template)) include 'templates/'.$this->template;
+    elseif (file_exists('rangka/templates/'.$this->template)) include 'rangka/templates/'.$this->template;
   }
 }
