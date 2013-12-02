@@ -18,6 +18,8 @@ abstract class controller
   protected $view_template = 'view.php';
   protected $edit_template = 'edit.php';
 
+  protected $post_errors = array();
+
   public function __constuct() 
   {
 
@@ -114,6 +116,32 @@ abstract class controller
 
 
     $this->postpost();
+  }
+
+  protected function preput() {}
+
+  protected function postput() {}
+
+  protected function put()
+  {
+    $this->preput();
+
+
+
+    $this->postput();
+  }
+
+  protected function predelete() {}
+
+  protected function postdelete() {}
+
+  protected function delete()
+  {
+    $this-> predelete();
+
+
+
+    $this->postdelete();
   }
 
   protected function view()
