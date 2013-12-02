@@ -6,7 +6,7 @@ abstract class controller
   protected $tertiary_path;
   protected $quarternary_path;
 
-  protected $response_type;
+  protected $response_type = '';
 
   protected $model_name;
   protected $models;
@@ -14,13 +14,21 @@ abstract class controller
 
   protected $template;
   protected $standard_template = 'default.php';
-  protected $list_template = 'default_list.php';
-  protected $view_template = 'default_view.php';
-  protected $edit_template = 'default_edit.php';
+  protected $list_template = 'list.php';
+  protected $view_template = 'view.php';
+  protected $edit_template = 'edit.php';
 
   public function __constuct() 
   {
 
+  }
+
+  public function json_response()
+  {
+    $this->response_type = 'json';
+    $this->list_template = 'json_list.php';
+    $this->view_template = 'json_view.php';
+    $this->edit_template = 'json_edit.php';
   }
 
   public static function get_instance($name, $secondary_path='', $tertiary_path='', $quarternary_path='')
@@ -35,7 +43,8 @@ abstract class controller
       $controller->secondary_path = $secondary_path;
       $controller->tertiary_path = $tertiary_path;
       $controller->quarternary_path = $quarternary_path;
-      $controller->response_type = $response_type;
+      
+      if ($response_type == 'json') $controller->json_response();
     }
     else
     {
