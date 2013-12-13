@@ -1,13 +1,13 @@
-<html>
+<?php
 
-<head>
-  <title>Rangka</title>
-</head>
+include 'header.php';
 
-<body>
+?>
 
-<h1>Congratulations, you have Rangka!</u1>
+<h1>Congratulations, you have Rangka!</h1>
 
-</body>
+<p><a href="/sign-in">Sign in</a></p>
 
-</html>
+<?php
+
+include 'footer.php';
