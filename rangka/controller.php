@@ -6,7 +6,7 @@ abstract class controller
   protected $tertiary_path;
   protected $quarternary_path;
 
-  protected $response_type = '';
+  protected $response_format = 'html';
 
   protected $model_name;
   protected $models;
@@ -27,7 +27,7 @@ abstract class controller
 
   public function json_response()
   {
-    $this->response_type = 'json';
+    $this->response_format = 'json';
     $this->list_template = 'json_list.php';
     $this->view_template = 'json_view.php';
     $this->edit_template = 'json_edit.php';
@@ -35,9 +35,7 @@ abstract class controller
 
   public static function get_instance($name, $secondary_path='', $tertiary_path='', $quarternary_path='')
   {
-    $name_parts = explode('.', $name);
-    $controller_name = str_replace('-', '_', $name_parts[0]).'_controller';
-    $response_type = !empty($name_parts[1]) ? $name_parts[1] : '';
+    $controller_name = str_replace('-', '_', $name).'_controller';
 
     if (class_exists($controller_name))
     {
@@ -46,7 +44,7 @@ abstract class controller
       $controller->tertiary_path = $tertiary_path;
       $controller->quarternary_path = $quarternary_path;
       
-      if ($response_type == 'json') $controller->json_response();
+      if (isset($_GET['json'])) $controller->json_response();
     }
     else
     {
