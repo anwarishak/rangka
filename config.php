@@ -1,28 +1,27 @@
 <?php
 
-define('DB_TYPE', 'mysql');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'password');
-define('DB_NAME', 'rangka');
-
 switch ($_SERVER['HTTP_HOST'])
 {
-  case 'rangka.local':
-  case 'rangka.dev':
+  case 'localhost':
+  case 'localhost:8080':
     // Development settins
     define('DEBUG', true);
-    define('DB_HOST', 'localhost');
     break;
 
-  case 'rangka.demo.com':
+  case 'staging.rangka.com':
     // Staging settings
-    define('DEBUG', true);  
-    define('DB_HOST', 'localhost');
+    define('DEBUG', true);
     break;
 
   default:
-    // Porduction settings
-    define('DEBUG', true);  
-    define('DB_HOST', 'localhost');
+    // Production settings
     break;
 }
+
+if (!defined('DEBUG'))       define('DEBUG', 'false');
+
+if (!defined('DB_TYPE'))     define('DB_TYPE', 'mysql');
+if (!defined('DB_HOST'))     define('DB_HOST', 'localhost');
+if (!defined('DB_USERNAME')) define('DB_USERNAME', 'root');
+if (!defined('DB_PASSWORD')) define('DB_PASSWORD', 'password');
+if (!defined('DB_NAME'))     define('DB_NAME', 'rangka');
