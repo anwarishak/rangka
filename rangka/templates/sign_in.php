@@ -9,12 +9,14 @@ include 'header.php';
 </div>
 
 <div class="row">
-  <div class="col-md-offset-3 col-md-6">
+  <div class="col-md-offset-4 col-md-4">
     <div class="panel panel-default">
       <div class="panel-body">
 
+        <h2>Sign in</h2>
+
         <!--div class="alert alert-danger">Incorrect sign in details</div-->
-  
+
         <form class="form-horizontal" role="form" method="post" action="/sign-in">
           <div class="form-group">
             <label for="email" class="col-md-4 control-label">Username</label>
@@ -41,6 +43,8 @@ include 'header.php';
             </div>
           </div>
         </form>
+
+        <p>Not a member? <a href="/register">Register instead</a></p>
 
       </div>
     </div>
