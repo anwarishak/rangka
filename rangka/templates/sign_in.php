@@ -4,16 +4,10 @@ include 'header.php';
 
 ?>
 
-<div class="page-header">
-  <h1>Sign in</h1>
-</div>
-
 <div class="row">
-  <div class="col-md-offset-4 col-md-4">
+  <div class="col-md-offset-3 col-md-6">
     <div class="panel panel-default">
       <div class="panel-body">
-
-        <h2>Sign in</h2>
 
         <!--div class="alert alert-danger">Incorrect sign in details</div-->
 

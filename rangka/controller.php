@@ -2,6 +2,7 @@
 
 abstract class controller
 {
+  protected $main_path;
   protected $secondary_path;
   protected $tertiary_path;
   protected $quarternary_path;
@@ -20,7 +21,7 @@ abstract class controller
 
   protected $post_errors = array();
 
-  public function __constuct() 
+  public function __constuct()
   {
 
   }
@@ -40,10 +41,11 @@ abstract class controller
     if (class_exists($controller_name))
     {
       $controller = new $controller_name;
+      $controller->main_path = $name;
       $controller->secondary_path = $secondary_path;
       $controller->tertiary_path = $tertiary_path;
       $controller->quarternary_path = $quarternary_path;
-      
+
       if (isset($_GET['json'])) $controller->json_response();
     }
     else
@@ -146,6 +148,7 @@ abstract class controller
   {
     $models = $this->models;
     $model = $this->model;
+    $main_path = $this->main_path;
 
     if (file_exists('templates/'.$this->template)) include 'templates/'.$this->template;
     elseif (file_exists('rangka/templates/'.$this->template)) include 'rangka/templates/'.$this->template;

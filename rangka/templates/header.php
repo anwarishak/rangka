@@ -13,8 +13,8 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="navbar-wrapper">
+  <div class="navbar-wrapper">
+    <div class="container">
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -43,10 +43,14 @@
             </li>
           </ul-->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/sign-in">Sign in</a></li>
+            <li<?php if ($main_path == 'sign-in'): ?> class="active"<?php endif; ?>><a href="/sign-in">Sign in</a></li>
             <li><a href="register">Register</a></li>
           </ul>
         </div>
       </nav>
     </div>
+  </div>
+
+  <div class="container">
+
 
