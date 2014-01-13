@@ -43,8 +43,10 @@
             </li>
           </ul-->
           <ul class="nav navbar-nav navbar-right">
-            <li<?php if ($main_path == 'sign-in'): ?> class="active"<?php endif; ?>><a href="/sign-in">Sign in</a></li>
-            <li><a href="register">Register</a></li>
+            <li><button type="button" class="btn btn-default navbar-btn">Register</button></li>
+            <li class="navbar-text">or</li>
+            <li<?php if ($main_path == 'sign-in'): ?> class="active"<?php endif; ?>><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+
           </ul>
         </div>
       </nav>

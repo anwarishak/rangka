@@ -11,31 +11,19 @@ include 'header.php';
 
         <!--div class="alert alert-danger">Incorrect sign in details</div-->
 
-        <form class="form-horizontal" role="form" method="post" action="/sign-in">
+        <form role="form">
           <div class="form-group">
-            <label for="email" class="col-md-4 control-label">Username</label>
-            <div class="col-md-8">
-              <input type="email" id="email" name="email" class="form-control" value="" maxlength="128" />
-            </div>
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" value="">
           </div>
           <div class="form-group">
-            <label for="password" class="col-md-4 control-label">Password</label>
-            <div class="col-md-8">
-              <input type="password" name="password" class="form-control" />
-            </div>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
           </div>
-          <div class="form-group">
-            <div class="col-md-offset-4 col-md-8">
-              <div class="checkbox">
-                <label><input type="checkbox" id="remember" name="remember" value="1"> Remember me for 2 weeks</label>
-              </div>
-            </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="remember" value="1"> Remember me for 2 weeks</label>
           </div>
-          <div class="form-group">
-            <div class="col-md-offset-4 col-md-8">
-              <button type="submit" class="btn btn-default">Sign in</button>
-            </div>
-          </div>
+          <button type="submit" class="btn btn-default">Sign in</button>
         </form>
 
         <p>Not a member? <a href="/register">Register instead</a></p>
