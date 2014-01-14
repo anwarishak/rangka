@@ -1,2 +1,5 @@
-.navbar-wrapper { margin-top:20px; }
-.navbar-wrapper .container { padding:0; }
+a { text-decoration:underline; }
+
+.navbar-container { margin-top:20px; }
+.navbar-text { float:left; }
+.navbar-btn { float:right; }
