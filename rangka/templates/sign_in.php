@@ -6,30 +6,44 @@ include 'header.php';
 
 <div class="row">
   <div class="col-md-offset-3 col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
 
-        <!--div class="alert alert-danger">Incorrect sign in details</div-->
-
-        <form role="form">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" value="">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="remember" value="1"> Remember me for 2 weeks</label>
-          </div>
-          <button type="submit" class="btn btn-default">Sign in</button>
-        </form>
-
-        <p>Not a member? <a href="/register">Register instead</a></p>
-
-      </div>
+    <div class="page-header">
+      <h1>Sign in</h1>
     </div>
+
+    <!--div class="alert alert-danger">Incorrect sign in details</div-->
+
+    <form role="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="email" class="col-sm-4 control-label">Email address</label>
+        <div class="col-sm-8">
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="col-sm-4 control-label">Password</label>
+        <div class="col-sm-8">
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          <a href="">Forgot your password?</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          <div class="checkbox">
+            <label><input type="checkbox"> Keep signed in for 2 weeks</label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+      </div>
+    </form>
+
   </div>
 </div>
 
