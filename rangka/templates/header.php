@@ -43,7 +43,7 @@
         </ul-->
         <div class="nav navbar-right">
           <p class="navbar-text pull-left"><a href="/sign-in" class="navbar-link">Sign in</a> or</p>
-          <button type="button" class="btn btn-danger navbar-btn btn-sm pull-right">Create an account</button>
+          <a href="/create-account" class="btn btn-danger navbar-btn btn-sm pull-right">Create an account</a>
         </div>
       </div>
     </nav>

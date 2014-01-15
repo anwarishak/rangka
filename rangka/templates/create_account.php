@@ -8,10 +8,10 @@ include 'header.php';
   <div class="col-md-offset-2 col-md-8">
 
     <div class="page-header">
-      <h1>Sign in</h1>
+      <h1>Create an account</h1>
     </div>
 
-    <!--div class="alert alert-danger">Incorrect sign in details</div-->
+    <!--div class="alert alert-danger">Validation stuff</div-->
 
     <form role="form" class="form-horizontal">
       <div class="form-group">
@@ -27,20 +27,14 @@ include 'header.php';
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
-          <a href="">Forgot your password?</a>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
-          <div class="checkbox">
-            <label><input type="checkbox"> Keep signed in for 2 weeks</label>
-          </div>
+        <label for="repeat_password" class="col-sm-4 control-label">Repeat your password</label>
+        <div class="col-sm-8">
+          <input type="password" class="form-control" id="repeat_password" name="repeat_password">
         </div>
       </div>
       <hr>
       <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-lg">Create account</button> or <a href="/">cancel</a>
       </div>
     </form>
 
