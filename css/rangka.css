@@ -1,6 +1,7 @@
 a { text-decoration:underline; }
 .btn { text-decoration:none; }
 .navbar-brand { text-decoration:none; }
+.navbar-nav a { text-decoration:none; }
 
 .navbar-container { margin-top:20px; }
 
