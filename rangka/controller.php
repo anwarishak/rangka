@@ -2,10 +2,8 @@
 
 abstract class controller
 {
-  protected $main_path;
-  protected $secondary_path;
-  protected $tertiary_path;
-  protected $quarternary_path;
+  protected $name;
+  protected $path_parts;
 
   protected $response_format = 'html';
 
@@ -22,7 +20,7 @@ abstract class controller
   protected $post_errors = array();
   protected $view_register = array();
 
-  public function __constuct()
+  public function __construct()
   {
 
   }
@@ -35,17 +33,15 @@ abstract class controller
     $this->edit_template = 'json_edit.php';
   }
 
-  public static function get_instance($name, $secondary_path='', $tertiary_path='', $quarternary_path='')
+  public static function get_instance($name, $path_parts)
   {
-    $controller_name = str_replace('-', '_', $name).'_controller';
+    $controller_name = $name.'_controller';
 
     if (class_exists($controller_name))
     {
       $controller = new $controller_name;
-      $controller->main_path = $name;
-      $controller->secondary_path = $secondary_path;
-      $controller->tertiary_path = $tertiary_path;
-      $controller->quarternary_path = $quarternary_path;
+      $controller->name = $name;
+      $controller->path_parts = $path_parts;
 
       if (isset($_GET['json'])) $controller->json_response();
     }
