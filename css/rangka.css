@@ -1,8 +1,10 @@
 a { text-decoration:underline; }
+
 .btn { text-decoration:none; }
 .navbar-brand { text-decoration:none; }
 .navbar-nav a { text-decoration:none; }
 
-.navbar-container { margin-top:20px; }
+.navbar-container { margin-top:20px; padding:0; }
+nav, .navbar { margin-bottom:0; }
 
 footer { margin-top:50px; }

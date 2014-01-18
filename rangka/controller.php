@@ -20,6 +20,7 @@ abstract class controller
   protected $edit_template = 'edit.php';
 
   protected $post_errors = array();
+  protected $view_register = array();
 
   public function __constuct()
   {
@@ -149,6 +150,11 @@ abstract class controller
     $models = $this->models;
     $model = $this->model;
     $main_path = $this->main_path;
+
+    foreach ($this->view_register as $key => $val)
+    {
+      $$key = $val;
+    }
 
     if (file_exists('templates/'.$this->template)) include 'templates/'.$this->template;
     elseif (file_exists('rangka/templates/'.$this->template)) include 'rangka/templates/'.$this->template;

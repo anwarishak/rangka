@@ -35,3 +35,9 @@ function __autoload($class_name)
   elseif (file_exists('rangka/controllers/'.$file)) include 'rangka/controllers/'.$file;
   elseif (file_exists('rangka/models/'.$file)) include 'rangka/models/'.$file;
 }
+
+function __($str)
+{
+  $str = htmlentities($str);
+  echo $str;
+}
