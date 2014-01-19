@@ -6,7 +6,7 @@ class users_controller extends controller
 
   protected function view()
   {
-    $this->view_register['page_title'] = 'Users | List';
+    $this->view_register['page_title'] = 'Users';
     parent::view();
   }
 }

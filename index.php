@@ -3,6 +3,11 @@
 $path = isset($_SERVER['REDIRECT_URL']) ? trim($_SERVER['REDIRECT_URL'], '/ ') : '';
 $path_parts = explode('/', $path);
 
+// Failsafe... don't process files (i.e. paths with a file extension in it)
+if (strpos($path_parts[count($path_parts)-1], '.')) exit();
+
+include 'config.php';
+
 if ($path_parts[0] == 'api' && isset($path_parts[1]) && $path_parts[1] == 'v1' && isset($path_parts[2]))
 {
   $controller_name = 'api_v1_'.$path_parts[2];
@@ -18,25 +23,6 @@ $controller_name = preg_replace('/[^a-zA-Z0-9]+/', '_', $controller_name);
 
 $controller = controller::get_instance($controller_name, $path_parts);
 $controller->process();
-
-
-
-/*
-
-$main_path = empty($path_parts[0]) ? 'home' : $path_parts[0];
-$secondary_path = empty($path_parts[1]) ? '' : $path_parts[1];
-$tertiary_path = empty($path_parts[2]) ? '' : $path_parts[2];
-$quarternary_path = empty($path_parts[3]) ? '' : $path_parts[3];
-
-// DO ALL CUSTOM ROUTING / URL MANIPULATION HERE
-// $main_path SHOULD ALWAYS BE THE CONTROLLER NAME
-
-$controller = controller::get_instance($main_path, $secondary_path, $tertiary_path, $quarternary_path);
-$controller->process();
-
-*/
-
-
 
 
 
