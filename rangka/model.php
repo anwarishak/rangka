@@ -289,4 +289,20 @@ abstract class model
 
     return $result;
   }
+
+
+  protected function format_datetime($date_str)
+  {
+    return date('j F Y g:iA', strtotime($date_str));
+  }
+
+  public function format_created_at()
+  {
+    return $this->format_datetime($this->created_at);
+  }
+
+  public function format_updated_at()
+  {
+    return $this->format_datetime($this->updated_at);
+  }
 }

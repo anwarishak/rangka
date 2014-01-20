@@ -22,20 +22,15 @@ include 'header.php';
       <?php foreach ($models as $model): ?>
       <div class="col-md-3">
         <div class="panel panel-default">
-          <div class="panel-body">
-            <?php /*foreach ($list_properties as $key => $list_property): ?>
-              <?php if ($key == 0): ?><strong><?php else: ?><small><?php endif; ?>
-              <?php if ($list_property['is_method']: ?><?php __($model->$list_property['property_name']()) ?>
-              <?php else: ?><<?php __($model->$list_property['property_name']) ?>?php endif;*/ ?>
-
-
-
+          <div class="panel-body list-item">
             <p>
-              <a href="" style="text-decoration:none; color:black;"><strong><?php __($model->first_name.' '.$model->last_name) ?></strong></a><br>
-              <small>Email: <?php __($model->email) ?></small><br>
-              <small>Created: <?php __(date('d j Y h:i', strtotime($model->created_at))) ?></small>
+              <?php foreach ($list_properties as $key => $list_property): ?>
+              <?php if ($key == 0): ?><a href=""><strong><?php else: ?><small><?php endif; ?>
+              <?php if (!empty($list_property['title'])) { __($list_property['title'].': '); } ?>
+              <?php if ($list_property['is_method']) { __($model->$list_property['property_name']()); } else { __($model->$list_property['property_name']); } ?>
+              <?php if ($key == 0): ?></strong></a><?php else: ?></small><?php endif; ?><br>
+              <?php endforeach; ?>
             </p>
-
             <div class="row">
               <div class="col-md-6 small">
                 <input type="checkbox">

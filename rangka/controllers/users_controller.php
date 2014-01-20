@@ -9,8 +9,8 @@ class users_controller extends controller
     $this->view_register['page_title'] = 'Users';
     $this->add_list_property('', 'get_name', true);
     $this->add_list_property('', 'email');
-    $this->add_list_property('Created', 'created_at');
-    $this->add_list_property('Updated', 'updated_at');
+    $this->add_list_property('Created', 'format_created_at', true);
+    $this->add_list_property('Updated', 'format_updated_at', true);
     parent::view();
   }
 }

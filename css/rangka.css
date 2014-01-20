@@ -12,4 +12,6 @@ a { text-decoration:underline; }
 
 p.extra-margin { margin-bottom:40px; }
 
+.list-item a { text-decoration:none; color:black; }
+
 footer { margin-top:50px; }
