@@ -18,6 +18,8 @@ abstract class controller
   protected $edit_template = 'edit.php';
 
   protected $post_errors = array();
+
+  protected $list_properties = array();
   protected $view_register = array();
 
   public function __construct()
@@ -142,11 +144,21 @@ abstract class controller
     $this->postdelete();
   }
 
+  protected function add_list_property($title, $property_name, $is_method=false)
+  {
+    $this->list_properties[] = array(
+      'title' => $title,
+      'property_name' => $property_name,
+      'is_method' => $is_method
+    );
+  }
+
   protected function view()
   {
     $models = $this->models;
     $model = $this->model;
     $controller_name = $this->name;
+    $list_properties = $this->list_properties;
 
     foreach ($this->view_register as $key => $val)
     {

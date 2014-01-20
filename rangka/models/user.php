@@ -12,4 +12,9 @@ class user extends model
     $this->add_property('password_hash', 'VARCHAR', '64');
     $this->add_property('last_signed_in', 'DATETIME');
   }
+
+  public function get_name()
+  {
+    return $this->first_name.' '.$this->last_name;
+  }
 }
