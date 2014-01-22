@@ -298,11 +298,13 @@ abstract class model
 
   public function format_created_at()
   {
-    return $this->format_datetime($this->created_at);
+    $result = $this->created_at > 0 ? $this->format_datetime($this->created_at) : '-';
+    return $result;
   }
 
   public function format_updated_at()
   {
-    return $this->format_datetime($this->updated_at);
+    $result = $this->updated_at > 0 ? $this->format_datetime($this->updated_at) : '-';
+    return $result;
   }
 }
