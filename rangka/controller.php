@@ -62,17 +62,19 @@ abstract class controller
 
     switch ($_SERVER['REQUEST_METHOD'])
     {
-      case 'POST':
+      case 'POST': // Create
         $this->post();
         break;
-      case 'PUT':
+      case 'GET': // Read
+        $this->get();
+        break;
+      case 'PUT': // Update
         $this->put();
         break;
-      case 'DELETE':
+      case 'DELETE': // Delete
         $this->delete();
         break;
       default:
-        $this->get();
         break;
     }
 
