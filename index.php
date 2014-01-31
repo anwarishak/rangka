@@ -21,7 +21,6 @@ else
 }
 
 $controller_name = preg_replace('/[^a-zA-Z0-9]+/', '_', $controller_name);
-
 $controller = controller::get_instance($controller_name, $path_parts);
 $controller->process();
 

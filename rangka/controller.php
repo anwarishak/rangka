@@ -3,7 +3,7 @@
 abstract class controller
 {
   protected $name;
-  protected $path_parts;
+  protected $path_parts = array();
 
   protected $response_format = 'html';
 
@@ -49,8 +49,9 @@ abstract class controller
     }
     else
     {
-      file_put_contents('text.txt', 'Hello'.$controller_name);
+      header('HTTP/1.0 404 Not Found');
       $controller = new page_not_found_controller;
+      $controller->name = 'page_not_found';
     }
 
     return $controller;
