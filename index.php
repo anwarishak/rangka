@@ -3,8 +3,9 @@
 $path = isset($_SERVER['REDIRECT_URL']) ? trim($_SERVER['REDIRECT_URL'], '/ ') : '';
 $path_parts = explode('/', $path);
 
-// Failsafe... don't process files (i.e. paths with a file extension in it)
-if (strpos($path_parts[count($path_parts)-1], '.')) exit();
+// Failsafe... don't process files i.e. anything with a file extension. This happens
+// when the file does not exist, and .htaccess passes it on to Rangka to process.
+if (strpos(end($path_parts), '.')) exit();
 
 include 'config.php';
 
