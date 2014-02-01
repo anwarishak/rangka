@@ -13,7 +13,7 @@ include 'header.php';
 
 <div class="row">
   <div class="col-md-2">
-    <p class="extra-margin"><a href="" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span><br>Add new</a></p>
+    <p class="extra-margin"><a href="<?php __('/'.$controller_name.'?add') ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span><br>Add new</a></p>
     <p>Select <a href="">all</a>, <a href="">none</a>.</p>
     <p><a href="">Delete</a> selected records.</p>
   </div>
@@ -23,7 +23,7 @@ include 'header.php';
       <div class="col-md-3">
         <div class="panel panel-default">
           <div class="panel-body list-item">
-            <a href="">
+            <a href="<?php __('/'.$controller_name.'/'.$model->id.'?edit') ?>">
               <p>
                 <?php foreach ($list_properties as $key => $list_property): ?>
                 <?php if ($key == 0): ?><strong><?php else: ?><small><?php endif; ?>
@@ -34,12 +34,17 @@ include 'header.php';
               </p>
             </a>
             <div class="row">
-              <div class="col-md-6 small">
+              <div class="col-md-3">
                 <input type="checkbox">
               </div>
-              <div class="col-md-6 text-right">
-                <a href=""><span class="glyphicon glyphicon-pencil"></span></a>
-                <a href=""><span class="glyphicon glyphicon-trash"></span></a>
+              <div class="col-md-9 text-right">
+                <form method="post" action="<?php __('/'.$controller_name.'/'.$model->id) ?>">
+                  <input type="hidden" name="_METHOD" value="DELETE">
+                  <div class="btn-group btn-group-xs">
+                    <a href="<?php __('/'.$controller_name.'/'.$model->id.'?edit') ?>" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@
   <title>Rangka</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+  <!--link href="/css/bootstrap-theme.min.css" rel="stylesheet"-->
   <link href="/css/rangka.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -37,9 +37,9 @@
             </ul>
           </li>
         </ul>
-        <div class="nav navbar-right">
-          <p class="navbar-text pull-left"><a href="/sign-in" class="navbar-link">Sign in</a> or</p>
-          <a href="/create-account" class="btn btn-danger navbar-btn btn-sm pull-right">Create an account</a>
+        <div class="nav navbar-right navbar-text">
+          <a href="/sign-in" class="navbar-link">Sign in</a> or
+          <a href="/create-account" class="btn btn-danger navbar-btn btn-sm">Create an account</a>
         </div>
       </div>
     </nav>

@@ -6,6 +6,7 @@ a { text-decoration:underline; }
 
 .navbar-container { margin-top:20px; padding:0; }
 .nav, .navbar { margin-bottom:0; }
+.navbar-text { margin-top:0; }
 
 .rowed-page-header { margin-top:20px; }
 .list-filters { margin-top:40px; }

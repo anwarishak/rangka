@@ -61,13 +61,16 @@ abstract class controller
   {
     // $session = session::get_instance();
 
-    switch ($_SERVER['REQUEST_METHOD'])
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['_METHOD'])) $request_method = strtoupper(trim($_POST['_METHOD']));
+    elseif ($_SERVER['REQUEST_METHOD'] == 'POST') $request_method = 'POST';
+    elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') $request_method = 'PUT';
+    elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') $request_method = 'DELETE';
+    else $request_method = 'GET';
+
+    switch ($request_method)
     {
       case 'POST': // Create
         $this->post();
-        break;
-      case 'GET': // Read
-        $this->get();
         break;
       case 'PUT': // Update
         $this->put();
@@ -75,7 +78,8 @@ abstract class controller
       case 'DELETE': // Delete
         $this->delete();
         break;
-      default:
+      default: // Read
+        $this->get();
         break;
     }
 
@@ -93,7 +97,12 @@ abstract class controller
 
     if ($this->model_name)
     {
-      if (empty($this->path_parts[0]))
+      if (isset($_GET['add']))
+      {
+        $this->model = new $this->model_name;
+        $this->template = $this->edit_template;
+      }
+      elseif (empty($this->path_parts[0]))
       {
         $this->models = call_user_func($this->model_name.'::get_many');
         $this->template = $this->list_template;
@@ -102,6 +111,7 @@ abstract class controller
       {
         $this->model = call_user_func($this->model_name.'::get_by_id', $this->path_parts[0]);
         $this->template = $this->view_template;
+        if (isset($_GET['edit'])) $this->template = $this->edit_template;
       }
     }
 
