@@ -19,7 +19,7 @@ abstract class controller
 
   protected $post_errors = array();
 
-  protected $list_properties = array();
+  protected $list_items = array();
   protected $view_register = array();
 
   public function __construct()
@@ -157,12 +157,12 @@ abstract class controller
     $this->postdelete();
   }
 
-  protected function add_list_property($title, $property_name, $is_method=false)
+  protected function add_list_item($title, $property_or_method_name='', $is_method=false)
   {
-    $this->list_properties[] = array(
+    $this->list_items[] = array(
       'title' => $title,
-      'property_name' => $property_name,
-      'is_method' => $is_method
+      'property_name' => ($is_method ? '' : $property_or_method_name),
+      'method_name' => ($is_method ? $property_or_method_name : '')
     );
   }
 
@@ -171,7 +171,7 @@ abstract class controller
     $models = $this->models;
     $model = $this->model;
     $controller_name = $this->name;
-    $list_properties = $this->list_properties;
+    $list_items = $this->list_items;
 
     foreach ($this->view_register as $key => $val)
     {

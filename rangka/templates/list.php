@@ -24,14 +24,23 @@ include 'header.php';
         <div class="panel panel-default">
           <div class="panel-body list-item">
             <a href="<?php __('/'.$controller_name.'/'.$model->id.'?edit') ?>">
-              <p>
-                <?php foreach ($list_properties as $key => $list_property): ?>
-                <?php if ($key == 0): ?><strong><?php else: ?><small><?php endif; ?>
-                <?php if (!empty($list_property['title'])) { __($list_property['title'].': '); } ?>
-                <?php if ($list_property['is_method']) { __($model->$list_property['property_name']()); } else { __($model->$list_property['property_name']); } ?>
-                <?php if ($key == 0): ?></strong><?php else: ?></small><?php endif; ?><br>
-                <?php endforeach; ?>
-              </p>
+              <p><?php
+
+              foreach ($list_items as $key => $list_item)
+              {
+                if ($key == 0) echo '<strong>';
+                else echo '<small>';
+
+                if (!empty($list_item['title'])) __($list_item['title'].': ');
+
+                if (!empty($list_item['property_name'])) __($model->$list_item['property_name']);
+                elseif (!empty($list_item['method_name'])) __($model->$list_item['method_name']());
+
+                if ($key == 0) echo '</strong>';
+                else echo '</small>';
+
+                echo '<br>';
+              } ?></p>
             </a>
             <div class="row">
               <div class="col-md-3">

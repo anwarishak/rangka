@@ -16,7 +16,7 @@ abstract class model
     $this->add_property('created_at', 'DATETIME');
     $this->add_property('created_by', 'INT');
     $this->add_property('updated_at', 'DATETIME');
-    $this->add_property('created_by', 'INT');
+    $this->add_property('updated_by', 'INT');
 
     $this->add_parents();
   }
@@ -293,7 +293,7 @@ abstract class model
 
   protected function format_datetime($date_str)
   {
-    return date('j F Y g:iA', strtotime($date_str));
+    return date('j M Y H:i', strtotime($date_str));
   }
 
   public function format_created_at()
