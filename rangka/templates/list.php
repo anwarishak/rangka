@@ -31,10 +31,10 @@ include 'header.php';
                 if ($key == 0) echo '<strong>';
                 else echo '<small>';
 
-                if (!empty($list_item['title'])) __($list_item['title'].': ');
+                if ($list_item['title']) __($list_item['title'].': ');
 
-                if (!empty($list_item['property_name'])) __($model->$list_item['property_name']);
-                elseif (!empty($list_item['method_name'])) __($model->$list_item['method_name']());
+                if ($list_item['method_name']) __($model->$list_item['method_name']());
+                elseif ($list_item['property_name']) __($model->$list_item['property_name']);
 
                 if ($key == 0) echo '</strong>';
                 else echo '</small>';

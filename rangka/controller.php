@@ -20,6 +20,7 @@ abstract class controller
   protected $post_errors = array();
 
   protected $list_items = array();
+  protected $edit_items = array();
   protected $view_register = array();
 
   public function __construct()
@@ -166,12 +167,21 @@ abstract class controller
     );
   }
 
+  protected function add_edit_item($title, $property_name)
+  {
+    $this->edit_items[] = array(
+      'title' => $title,
+      'property_name' => $property_name
+    );
+  }
+
   protected function view()
   {
     $models = $this->models;
     $model = $this->model;
     $controller_name = $this->name;
     $list_items = $this->list_items;
+    $edit_items = $this->edit_items;
 
     foreach ($this->view_register as $key => $val)
     {

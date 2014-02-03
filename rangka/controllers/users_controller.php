@@ -15,6 +15,9 @@ class users_controller extends controller
     $this->add_list_item('', 'email');
     $this->add_list_item('Updated', 'format_updated_at', true);
 
+    $this->add_edit_item('First name', 'first_name');
+    $this->add_edit_item('Last name', 'last_name');
+
     parent::view();
   }
 }
