@@ -17,6 +17,7 @@ class users_controller extends controller
 
     $this->add_edit_item('First name', 'first_name');
     $this->add_edit_item('Last name', 'last_name');
+    $this->add_edit_item('Email', 'email');
 
     parent::view();
   }
