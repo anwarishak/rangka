@@ -21,7 +21,7 @@ include 'header.php';
         <div class="form-group">
           <label for="<?php __($edit_item['property_name']) ?>" class="col-sm-4 control-label"><?php __($edit_item['title']) ?></label>
           <div class="col-sm-8">
-            <input type="text" id="<?php __($edit_item['property_name']) ?>" name="<?php __($edit_item['property_name']) ?>" class="form-control" id="inputEmail3" value="<?php __($model->$edit_item['property_name']) ?>">
+            <input type="text" id="<?php __($edit_item['property_name']) ?>" name="<?php __($edit_item['property_name']) ?>" class="form-control" id="inputEmail3" value="<?php __($form->$edit_item['property_name']) ?>">
           </div>
         </div>
         <?php endforeach; ?>
