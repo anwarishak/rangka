@@ -6,7 +6,7 @@ include 'header.php';
 
 <div class="page-header rowed-page-header">
   <div class="row">
-    <div class="col-md-6"><h1><?php __($page_title) ?></h1></div>
+    <div class="col-md-6"><h2><?php __($page_title) ?></h2></div>
     <div class="col-md-6 text-right list-filters"><strong>332 records.</strong> Order by <a href="">created at</a>, <a href="">updated at</a>, <a href="">first name</a>, <a href="">last name</a>.</div>
   </div>
 </div>

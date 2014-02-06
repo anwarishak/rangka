@@ -26,7 +26,9 @@ abstract class controller
 
   public function __construct()
   {
-
+    $this->add_list_items();
+    $this->add_edit_items();
+    $this->form = new form;
   }
 
   public function json_response()
@@ -69,8 +71,6 @@ abstract class controller
     elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') $request_method = 'DELETE';
     else $request_method = 'GET';
 
-    $this->form = new form;
-
     switch ($request_method)
     {
       case 'POST': // Create
@@ -101,24 +101,31 @@ abstract class controller
 
     if ($this->model_name)
     {
-      if (isset($_GET['add']))
+      if (empty($this->path_parts[0]))
       {
-        $this->model = new $this->model_name;
-        $this->add_edit_items();
-        $this->template = $this->edit_template;
-      }
-      elseif (empty($this->path_parts[0]))
-      {
-        $this->models = call_user_func($this->model_name.'::get_many');
-        $this->add_list_items();
-        $this->template = $this->list_template;
+        if (isset($_GET['add'])) // Add item form
+        {
+          $this->model = new $this->model_name;
+          $this->template = $this->edit_template;
+        }
+        else // List items
+        {
+          $this->models = call_user_func($this->model_name.'::get_many');
+          $this->template = $this->list_template;
+        }
       }
       else
       {
-        $this->model = call_user_func($this->model_name.'::get_by_id', $this->path_parts[0]);
-        $this->add_edit_items();
-        $this->template = $this->view_template;
-        if (isset($_GET['edit'])) $this->template = $this->edit_template;
+        if (isset($_GET['edit'])) // Edit item form
+        {
+          $this->model = call_user_func($this->model_name.'::get_by_id', $this->path_parts[0]);
+          $this->template = $this->edit_template;
+        }
+        else // View item
+        {
+          $this->model = call_user_func($this->model_name.'::get_by_id', $this->path_parts[0]);
+          $this->template = $this->view_template;
+        }
       }
     }
 
@@ -178,21 +185,21 @@ abstract class controller
 
   protected function add_edit_items() {}
 
-  protected function add_edit_item($title, $property_name, $type='text', $model_property=null)
+  protected function add_edit_item($title='', $property_name='', $type='text', $is_model_property=true)
   {
     $this->edit_items[] = array(
-      'title' => $title,
-      'property_name' => $property_name,
+      'title' => $title, // if empty, display this input with the previous one (inline)
+      'property_name' => $property_name, // if empty, just display title; it's not an input
       'type' => $type, // text, short_text, textarea, password, file, date, date_time, checkbox
-      'model_property' => $model_property
+      'is_model_property' => $is_model_property
     );
   }
 
   protected function view()
   {
+    $controller_name = $this->name;
     $models = $this->models;
     $model = $this->model;
-    $controller_name = $this->name;
     $list_items = $this->list_items;
     $edit_items = $this->edit_items;
     $form = $this->form;

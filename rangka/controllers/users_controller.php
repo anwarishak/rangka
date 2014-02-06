@@ -16,8 +16,8 @@ class users_controller extends controller
     $this->add_edit_item('First name', 'first_name');
     $this->add_edit_item('Last name', 'last_name');
     $this->add_edit_item('Email', 'email');
-    $this->add_edit_item('Password', 'password');
-    $this->add_edit_item('Repeat your password', 'repeat_password');
+    $this->add_edit_item('Password', 'password', 'password', false);
+    $this->add_edit_item('Repeat your password', 'repeat_password', 'password', false);
   }
 
   protected function view()
