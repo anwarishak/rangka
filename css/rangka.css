@@ -1,12 +1,15 @@
+
+/*
 a { text-decoration:underline; }
 
 .btn { text-decoration:none; }
 .navbar-brand { text-decoration:none; }
 .navbar-nav a { text-decoration:none; }
 
-.navbar-container { margin-top:20px; padding:0; }
+/*
 .nav, .navbar { margin-bottom:0; }
 .navbar-text { margin-top:0; }
+*/
 
 .rowed-page-header { margin-top:20px; }
 .list-filters { margin-top:40px; }

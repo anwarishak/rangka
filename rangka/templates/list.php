@@ -29,7 +29,7 @@ include 'header.php';
               foreach ($list_items as $key => $list_item)
               {
                 if ($key == 0) echo '<strong>';
-                else echo '<small>';
+                else echo '<small class="text-muted">';
 
                 if ($list_item['title']) __($list_item['title'].': ');
 
