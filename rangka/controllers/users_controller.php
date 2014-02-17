@@ -3,6 +3,7 @@
 class users_controller extends controller
 {
   protected $model_name = 'user';
+  protected $list_template = 'users_list.php';
 
   protected function add_list_items()
   {

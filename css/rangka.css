@@ -11,6 +11,15 @@ a { text-decoration:underline; }
 .navbar-text { margin-top:0; }
 */
 
+.nav-pills>li>a { padding:5px 15px; }
+.no-subnav { margin-top:47px; }
+.page-header { margin-top:20px; }
+.page-header h3 { margin-top:0; }
+.page-header .text-right { margin-top:5px; }
+a.active { text-decoration:underline; }
+
+
+
 .rowed-page-header { margin-top:20px; }
 .list-filters { margin-top:40px; }
 

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -33,31 +33,23 @@
         <li class="active"><a href="/users">Users</a></li>
       </ul>
       <div class="nav navbar-right navbar-text">
-        Signed in as <a href="/profile">Anwar Ishak</a>. <a href="/sign-out">Sign out</a>.
+        Signed in as <a href="/profile" class="navbar-link">Anwar Ishak</a>. <a href="/sign-out" class="navbar-link">Sign out</a>.
         <!--a href="">Sign in</a> or <a href="">create an account</a-->
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<?php if ($controller_name == 'home'): ?>
+<div class="container no-subnav">
+<?php else: ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <ul class="nav nav-pills">
-        <li class="active"><a href="/users">Users</a></li>
-        <li><a href="/roles">Roles</a></li>
-        <li><a href="/permissions">Permissions</a></li>
-      </ul>
-    </div>
-    <!--div class="col-md-6 text-right">
-      <form class="form-inline" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
-    </div-->
+  <ul class="nav nav-pills small">
+    <li class="active"><a href="/users">Users</a></li>
+    <li><a href="/roles">Roles</a></li>
+    <li><a href="/permissions">Permissions</a></li>
+  </ul>
 </div>
 
 <div class="container">
-
-
+<?php endif; ?>
