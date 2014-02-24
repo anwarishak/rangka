@@ -6,14 +6,35 @@ include 'header.php';
 
 <div class="page-header">
   <div class="row">
-    <div class="col-md-6"><h3><?php __($page_title) ?></h3></div>
-    <div class="col-md-6 text-muted text-right">332 records. Order by <a href="">first name</a>, <a href="">last name</a> or <a href="" class="active">created at</a>.</div>
+    <div class="col-md-6">
+      <h2>
+        <?php __($page_title) ?> <a href="<?php __('/'.$controller_name.'?add') ?>" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-plus"></span> Add new</a>
+      </h2>
+    </div>
+    <div class="col-md-6 text-right text-muted">
+      24 records. Order by <a href="">first name</a>, <a href="">last name</a> or <a href="" class="active">created at</a>.
+    </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-2">
-    <p class="extra-margin"><a href="<?php __('/'.$controller_name.'?add') ?>" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span><br>Add new</a></p>
+  <div class="col-md-2 text-muted">
+
+    <form role="form">
+      <div class="form-group">
+        <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Search keyword(s)...">
+      </div>
+      <div class="form-group">
+        <select class="form-control input-sm">
+          <option value="">All statuses</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default btn-sm">Filter</button>
+    </form>
+
+    <br /><br />
+
     <p>Select <a href="">all</a>, <a href="">none</a>.</p>
     <p><a href="">Delete</a> selected records.</p>
   </div>
