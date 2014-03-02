@@ -7,19 +7,18 @@ include 'header.php';
 <div class="page-header">
   <div class="row">
     <div class="col-md-6">
-      <h2>
-        <?php __($page_title) ?> <a href="<?php __('/'.$controller_name.'?add') ?>" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-plus"></span> Add new</a>
-      </h2>
+      <h3><?php __($page_title) ?> <a href="<?php __('/'.$controller_name.'?add') ?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span> Add new</a></h3>
     </div>
-    <div class="col-md-6 text-right text-muted">
+    <div class="col-md-6 text-right">
       24 records. Order by <a href="">first name</a>, <a href="">last name</a> or <a href="" class="active">created at</a>.
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-2 text-muted">
+  <div class="col-md-2">
+
+    <p><strong>Filter</strong></p>
 
     <form role="form">
       <div class="form-group">
